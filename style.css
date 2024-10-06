@@ -1,0 +1,123 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+    color: aqua;
+    overflow-x: hidden;
+}
+
+#login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#login-btn {
+    margin-top: 10px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    z-index: 3;
+}
+
+#hidden-login-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    opacity: 0; /* Fully transparent but still there */
+    pointer-events: auto; /* Prevents interaction when not active */
+}
+
+/* Making the hidden button work */
+#hidden-login-btn.active {
+    pointer-events: auto; /* Enables interaction */
+}
+
+.hover-avoid {
+    font-size: 18px;
+    margin: 20px;
+}
+
+.popup {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 90%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 5px solid red;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+#pseudo-close-btn {
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+#real-close-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0; /* Fully transparent but still there */
+    cursor: pointer; /* Still clickable */
+    z-index: 1000;
+}
+
+#real-close-btn.active {
+    pointer-events: auto; /* Enables interaction */
+}  
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+/Edge */
+  }
+  
+/* Moving Image Animation */
+#moving-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    animation: stepMove 10s linear infinite;
+}
+
+@keyframes stepMove {
+    0% { left: 0; top: 0; }         /* Start at top-left */
+    25% { left: 100vw; top: 0; }    /* Move horizontally across the screen */
+    50% { left: 100vw; top: 100px; }/* Move down after reaching the right edge */
+    75% { left: 0; top: 200px; }    /* Move horizontally back to the left, but lower */
+    100% { left: 100vw; top: 300px; }/* Move horizontally to the right again, even lower */
+}
+
+/* Login Details */
+.logindeets {
+    position: relative;
+    z-index: 2; /* Higher z-index for the login details as well */
+}
