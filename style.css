@@ -105,7 +105,7 @@ button {
     top: 0;
     left: 0;
     width: 500px;
-    animation: stepMove 10s linear infinite;
+    animation: stepMove 15s linear infinite;
 }
 
 @keyframes stepMove {
